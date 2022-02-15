@@ -1,0 +1,65 @@
+.container {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 6em;
+  height: 10em;
+  background-image: url("../images/FatCatHeart.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.values {
+  color: white;
+  padding: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-auto-columns: auto;
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  /*
+  .N {
+    transform: translate(0);
+  }
+  .E {
+    transform: translate(0.7em, 0);
+  }
+  .S {
+    transform: translate(0, 0.2em);
+  }
+  .W {
+    transform: translate(-0.7em, -2.65em);
+  }
+  */
+}
+
+.values .N {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  grid-column: 1/-1;
+  margin: -0.4em 0;
+}
+
+.values .W,
+.values .E {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  margin: 0 0.2em;
+}
+
+.values .S {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  grid-column: 1/-1;
+  margin: -0.4em 0;
+}
+/*# sourceMappingURL=Card.module.css.map */

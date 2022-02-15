@@ -1,0 +1,59 @@
+.container {
+  border: 1px solid black;
+  border-radius: 5px;
+
+  display: inline-flex;
+  flex-direction: column;
+
+  width: 6em;
+  height: 10em;
+
+  background-image: url('../images/FatCatHeart.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.values {
+  color: white;
+  padding: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-columns: auto;
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  * {
+  }
+  .N {
+    grid-row: 1;
+    grid-column: 1/-1;
+    margin: -0.4em 0;
+  }
+  .W,
+  .E {
+    grid-row: 2;
+    margin: 0 0.2em;
+  }
+
+  .S {
+    grid-row: 3;
+    grid-column: 1/-1;
+    margin: -0.4em 0;
+  }
+
+  /*
+  .N {
+    transform: translate(0);
+  }
+  .E {
+    transform: translate(0.7em, 0);
+  }
+  .S {
+    transform: translate(0, 0.2em);
+  }
+  .W {
+    transform: translate(-0.7em, -2.65em);
+  }
+  */
+  //wow im really dumb
+}
