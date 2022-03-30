@@ -4,6 +4,18 @@ function App() {
   const cards = [
     [1, 3, 'A', 'A'],
     [6, 6, 6, 6],
+    [7, 1, 'A', 'A'],
+  ];
+  const boardState = [
+    0,
+    0,
+    [1, 3, 'A', 'A'],
+    [6, 6, 6, 6],
+    0,
+    [7, 1, 'A', 'A'],
+    0,
+    0,
+    0,
   ];
   return (
     <div className='App'>
@@ -11,7 +23,9 @@ function App() {
       <Card values={[6, 6, 6, 6]} />
       <Card values={[0, 1, 2, 3]} />
 
-      <Gameboard boardState={cards} />
+      <div>gameboard stuff</div>
+
+      <Gameboard boardState={boardState} />
     </div>
   );
 }

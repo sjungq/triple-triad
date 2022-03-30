@@ -1,6 +1,9 @@
 .container {
-  border: 1px solid black;
-  height: 150px;
-  width: 150px;
-  //note: don't render the borders like this; that can be rendered on the gameboard to make it look cleaner
+  width: 11em;
+  height: 11em;
+  background-color: beige;
+
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: center;
 }

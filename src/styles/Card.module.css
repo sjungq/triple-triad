@@ -8,11 +8,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 6em;
-  height: 10em;
+  width: 7.5em;
+  height: 10.5em;
   background-image: url("../images/FatCatHeart.png");
   background-repeat: no-repeat;
   background-size: 100%;
+}
+
+.rank {
+  text-align: left;
 }
 
 .values {
@@ -26,6 +30,8 @@
       grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: auto;
   text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  position: relative;
+  bottom: -2em;
   /*
 	.N {
 		transform: translate(0);

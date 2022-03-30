@@ -4,9 +4,9 @@ import Card from './Card';
 
 export default function Tile({ cardValues }) {
   return (
-    <div className={styles.container}>
+    <td className={styles.container}>
       {cardValues ? <Card values={cardValues} /> : <></>}
       {/* <Card values={cardValues} /> */}
-    </div>
+    </td>
   );
 }

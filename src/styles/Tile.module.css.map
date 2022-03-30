@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,eAAe;EACvB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;CAEb",
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,KAAK;EAEvB,cAAc,EAAE,MAAM;EACtB,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,MAAM;CACnB",
     "sources": [
         "Tile.module.scss"
     ],

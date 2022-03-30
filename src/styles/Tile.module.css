@@ -1,6 +1,9 @@
 .container {
-  border: 1px solid black;
-  height: 150px;
-  width: 150px;
+  width: 11em;
+  height: 11em;
+  background-color: beige;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: center;
 }
 /*# sourceMappingURL=Tile.module.css.map */

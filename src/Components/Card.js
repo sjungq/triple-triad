@@ -7,7 +7,7 @@ export default function Card({ values }) {
   const valuePositions = ['N', 'W', 'E', 'S'];
   return (
     <div className={styles.container}>
-      <div>test</div>
+      <div className={styles.rank}>test</div>
       {/* <img src={img} alt='card-art' /> */}
       <div className={styles.values}>
         {values.map((stat, index) => (
