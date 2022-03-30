@@ -6,16 +6,11 @@ function App() {
     [6, 6, 6, 6],
     [7, 1, 'A', 'A'],
   ];
+
   const boardState = [
-    0,
-    0,
-    [1, 3, 'A', 'A'],
-    [6, 6, 6, 6],
-    0,
-    [7, 1, 'A', 'A'],
-    0,
-    0,
-    0,
+    [0, [2, 5, 'A', 'A'], 0],
+    [[6, 6, 6, 6], 0, 0],
+    [0, 0, ['A', 3, 6, 'A']],
   ];
   return (
     <div className='App'>
@@ -25,7 +20,7 @@ function App() {
 
       <div>gameboard stuff</div>
 
-      <Gameboard boardState={boardState} />
+      {<Gameboard boardState={boardState} />}
     </div>
   );
 }

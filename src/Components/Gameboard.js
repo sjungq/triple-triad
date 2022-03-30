@@ -9,23 +9,19 @@ export default function Gameboard({ xlen, ylen, boardState }) {
   console.log(boardState);
   let visualBoard = [];
   let index = 0;
-  for (let i = 0; i < xlen; i++) {
-    let row = [];
-    for (let j = 0; j < ylen; j++) {
-      let coord = `${i}${j}`;
-      row.push(<Tile key={coord} cardValues={boardState[index]} />);
-      index++;
-    }
 
-    visualBoard.push(<tr key={`row${i}`}>{row}</tr>);
-  }
+  boardState.forEach((row, xidx) => {
+    let boardRow = [];
+    row.forEach((tile, yidx) => {
+      let coord = `${xidx}-${yidx}`;
+      boardRow.push(<Tile key={coord} cardValues={tile} />);
+    });
+
+    visualBoard.push(<tr key={`row${xidx}`}>{boardRow}</tr>);
+  });
 
   return (
     <div>
-      {/* <Tile />
-      {boardState.map((state, index) => (
-        <Tile cardValues={state} key={index} />
-      ))} */}
       <table className={styles.board}>
         <tbody>{visualBoard}</tbody>
       </table>
