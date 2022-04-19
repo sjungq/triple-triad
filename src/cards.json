@@ -1,0 +1,25 @@
+{
+  "cards": [
+    {
+      "id": "1",
+      "name": "Fat Cat",
+      "url": "FatCatHeart.png",
+      "rank": "3",
+      "values": [2, 5, "A", "A"]
+    },
+    {
+      "id": "2",
+      "name": "Alpha",
+      "url": "Alpha.png",
+      "rank": "2",
+      "values": [6, 6, 6, 6]
+    },
+    {
+      "id": "3",
+      "name": "Major-General",
+      "url": "MajorGeneral.png",
+      "rank": "1",
+      "values": [1, 2, 5, 3]
+    }
+  ]
+}

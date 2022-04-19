@@ -8,7 +8,8 @@
   width: 7.5em;
   height: 10.5em;
 
-  background-image: url('../images/FatCatHeart.png');
+  //background-image: url('../images/Alpha.png');
+  //https://source.unsplash.com/collection/483251
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -25,9 +26,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: auto;
-  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
   position: relative;
-  bottom: -2em;
+  bottom: -2.3em;
   .N {
     grid-row: 1;
     grid-column: 1/-1;

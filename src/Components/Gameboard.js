@@ -12,9 +12,9 @@ export default function Gameboard({ xlen, ylen, boardState }) {
 
   boardState.forEach((row, xidx) => {
     let boardRow = [];
-    row.forEach((tile, yidx) => {
+    row.forEach((card, yidx) => {
       let coord = `${xidx}-${yidx}`;
-      boardRow.push(<Tile key={coord} cardValues={tile} />);
+      boardRow.push(<Tile key={coord} card={card} />);
     });
 
     visualBoard.push(<tr key={`row${xidx}`}>{boardRow}</tr>);
@@ -30,6 +30,7 @@ export default function Gameboard({ xlen, ylen, boardState }) {
 }
 
 Gameboard.defaultProps = {
+  //shouldn't be needed
   xlen: 3,
   ylen: 3,
 };
