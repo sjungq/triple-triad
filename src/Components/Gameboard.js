@@ -12,9 +12,9 @@ export default function Gameboard({ xlen, ylen, boardState }) {
 
   boardState.forEach((row, xidx) => {
     let boardRow = [];
-    row.forEach((card, yidx) => {
+    row.forEach((tile, yidx) => {
       let coord = `${xidx}-${yidx}`;
-      boardRow.push(<Tile key={coord} card={card} />);
+      boardRow.push(<Tile key={coord} card={tile.card} owner={tile.owner} />);
     });
 
     visualBoard.push(<tr key={`row${xidx}`}>{boardRow}</tr>);

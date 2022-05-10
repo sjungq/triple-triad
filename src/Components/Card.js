@@ -2,10 +2,14 @@ import React from 'react';
 import styles from '../styles/Card.module.css';
 //import img from '../images/FatCatHeart.png';
 
-export default function Card({ values, rank, url }) {
+export default function Card({ values, rank, url, owner }) {
   //const stats = [1, 2, 3, 4];
   const valuePositions = ['N', 'W', 'E', 'S'];
-  const style = { backgroundImage: `url(/images/${url})` };
+  const ownerColor = owner;
+  const style = {
+    backgroundImage: `url(/images/${url})`,
+    backgroundColor: owner,
+  };
   return (
     <div style={style} className={styles.container}>
       <div className={styles.rank}>{rank}</div>

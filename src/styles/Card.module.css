@@ -12,10 +12,19 @@
   height: 10.5em;
   background-repeat: no-repeat;
   background-size: 100%;
+  background-color: gray;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .rank {
   text-align: left;
+  color: white;
+  font-size: 1em;
+  padding: 0 0.5em;
+  text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
 .values {
