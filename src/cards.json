@@ -20,6 +20,13 @@
       "url": "MajorGeneral.png",
       "rank": "1",
       "values": [1, 2, 5, 3]
+    },
+    {
+      "id": "4",
+      "name": "The Great Serpent of Ronka",
+      "url": "Ronka.png",
+      "rank": "2",
+      "values": [4, 4, 6, 6]
     }
   ]
 }
