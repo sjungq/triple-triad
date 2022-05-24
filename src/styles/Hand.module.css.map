@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EAEb,UAAU,EAAE,GAAG;CAIhB;;AAND,AAGE,cAHY,GAGR,GAAG,CAAC;EACN,QAAQ,EAAE,QAAQ;CACnB",
     "sources": [
         "Hand.module.scss"
     ],

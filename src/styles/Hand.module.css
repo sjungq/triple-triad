@@ -1,1 +1,8 @@
-/* No CSS *//*# sourceMappingURL=Hand.module.css.map */
+.cardContainer {
+  margin-top: 1em;
+}
+
+.cardContainer > div {
+  position: relative;
+}
+/*# sourceMappingURL=Hand.module.css.map */

@@ -6,7 +6,7 @@ export default function Gameboard({ xlen, ylen, boardState }) {
   /*
   render tiles, which will render cards placed on those tiles
   */
-  console.log(boardState);
+  //console.log(boardState);
   let visualBoard = [];
   let index = 0;
 

@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import styles from '../styles/Card.module.css';
 //import img from '../images/FatCatHeart.png';
 
-export default function Card({ values, rank, url, owner, name }) {
+export default function Card({
+  values,
+  rank,
+  url,
+  owner,
+  name,
+  select,
+  index,
+}) {
   //const stats = [1, 2, 3, 4];
   const valuePositions = ['N', 'W', 'E', 'S'];
   const [currentOwner, setCurrentOwner] = useState(owner);
+  const selectAvailable = select ? styles.selectAvailable : '';
+  const [isSelected, setSelected] = useState(false);
+  const selected = isSelected ? styles.selected : '';
 
   const style = {
     backgroundImage: `url(/images/${url})`,
@@ -22,12 +33,17 @@ export default function Card({ values, rank, url, owner, name }) {
 
   const cardClick = (evt) => {
     //flipOwner();
-    console.log(values, currentOwner);
+    if (select) {
+      select(index);
+      setSelected(true);
+    } else {
+      console.log(values, currentOwner);
+    }
   };
   return (
     <div
       style={style}
-      className={styles.container}
+      className={`${styles.container} ${selectAvailable} ${selected}`}
       onClick={cardClick}
       title={name}
     >

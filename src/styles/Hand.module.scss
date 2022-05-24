@@ -1,0 +1,7 @@
+.cardContainer {
+  //display: flex;
+  margin-top: 1em;
+  & > div {
+    position: relative;
+  }
+}

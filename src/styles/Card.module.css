@@ -19,6 +19,14 @@
           user-select: none;
 }
 
+.selectAvailable:hover {
+  bottom: 1em;
+}
+
+.selected {
+  bottom: 1em;
+}
+
 .rank {
   text-align: left;
   color: white;

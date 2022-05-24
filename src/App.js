@@ -2,14 +2,13 @@ import Card from './Components/Card';
 import Hand from './Components/Hand';
 import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
+import { useState } from 'react';
 function App() {
   const cards = [
     [1, 3, 'A', 'A'],
     [6, 6, 6, 6],
     [7, 1, 'A', 'A'],
   ];
-
-  console.log(testCards.cards[0]);
 
   const boardState = [
     [0, { card: testCards.cards[0], owner: 'BLUE' }, 0],
@@ -21,10 +20,16 @@ function App() {
     [0, 0, 0],
   ];
 
-  const select = () => {};
+  //just testing if this works
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const selectCard = (item) => {
+    console.log('Set selected card: ', item);
+    setSelectedCard(item);
+  };
   return (
     <div className='App'>
-      <Hand cards={testCards.cards} owner='BLUE' />
+      <Hand cards={testCards.cards} owner='BLUE' select={selectCard} />
       <Hand cards={testCards.cards} owner='RED' />
       {/* <Card values={[1, 3, 'A', 'A']} />
       <Card values={[6, 6, 6, 6]} />
