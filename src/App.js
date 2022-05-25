@@ -23,13 +23,18 @@ function App() {
   //just testing if this works
   const [selectedCard, setSelectedCard] = useState(null);
 
-  const selectCard = (item) => {
-    console.log('Set selected card: ', item);
-    setSelectedCard(item);
+  const selectCard = (index) => {
+    console.log('Set selected card: ', index);
+    setSelectedCard(index);
   };
   return (
     <div className='App'>
-      <Hand cards={testCards.cards} owner='BLUE' select={selectCard} />
+      <Hand
+        cards={testCards.cards}
+        owner='BLUE'
+        selectCard={selectCard}
+        selectedCard={selectedCard}
+      />
       <Hand cards={testCards.cards} owner='RED' />
       {/* <Card values={[1, 3, 'A', 'A']} />
       <Card values={[6, 6, 6, 6]} />

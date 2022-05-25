@@ -8,15 +8,15 @@ export default function Card({
   url,
   owner,
   name,
-  select,
+  selectCard,
   index,
+  isSelected,
 }) {
   //const stats = [1, 2, 3, 4];
   const valuePositions = ['N', 'W', 'E', 'S'];
   const [currentOwner, setCurrentOwner] = useState(owner);
-  const selectAvailable = select ? styles.selectAvailable : '';
-  const [isSelected, setSelected] = useState(false);
-  const selected = isSelected ? styles.selected : '';
+  const selectAvailable = selectCard ? styles.selectAvailable : '';
+  const selectedStyle = isSelected ? styles.selected : '';
 
   const style = {
     backgroundImage: `url(/images/${url})`,
@@ -33,9 +33,8 @@ export default function Card({
 
   const cardClick = (evt) => {
     //flipOwner();
-    if (select) {
-      select(index);
-      setSelected(true);
+    if (selectCard) {
+      selectCard(index);
     } else {
       console.log(values, currentOwner);
     }
@@ -43,7 +42,7 @@ export default function Card({
   return (
     <div
       style={style}
-      className={`${styles.container} ${selectAvailable} ${selected}`}
+      className={`${styles.container} ${selectAvailable} ${selectedStyle}`}
       onClick={cardClick}
       title={name}
     >

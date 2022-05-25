@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import styles from '../styles/Hand.module.css';
 
-export default function Hand({ cards, owner, select }) {
+export default function Hand({ cards, owner, selectCard, selectedCard }) {
   //console.log('hand', cards);
   return (
     <div>
@@ -14,8 +14,9 @@ export default function Hand({ cards, owner, select }) {
               {...card}
               key={`${owner}${id}`}
               owner={owner}
-              select={select}
+              selectCard={selectCard}
               index={id}
+              isSelected={selectedCard === id}
             />
           );
         })}
