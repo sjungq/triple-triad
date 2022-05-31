@@ -4,11 +4,9 @@ import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
 import { useState } from 'react';
 function App() {
-  const cards = [
-    [1, 3, 'A', 'A'],
-    [6, 6, 6, 6],
-    [7, 1, 'A', 'A'],
-  ];
+  const cards = testCards.cards.map((card) => {
+    return { ...card, isSelected: false };
+  });
 
   const boardState = [
     [0, { card: testCards.cards[0], owner: 'BLUE' }, 0],
@@ -22,24 +20,21 @@ function App() {
 
   //just testing if this works
   const [selectedCard, setSelectedCard] = useState(null);
+  console.log(cards);
 
-  const selectCard = (index) => {
+  const setActiveCard = (index) => {
     console.log('Set selected card: ', index);
     setSelectedCard(index);
   };
   return (
     <div className='App'>
       <Hand
-        cards={testCards.cards}
+        cards={cards}
         owner='BLUE'
-        selectCard={selectCard}
+        setActiveCard={setActiveCard}
         selectedCard={selectedCard}
       />
-      <Hand cards={testCards.cards} owner='RED' />
-      {/* <Card values={[1, 3, 'A', 'A']} />
-      <Card values={[6, 6, 6, 6]} />
-      <Card values={[0, 1, 2, 3]} />
-      <Card {...testCards.cards[0]} /> */}
+      <Hand cards={cards.slice().reverse()} owner='RED' />
 
       <div>gameboard stuff</div>
 

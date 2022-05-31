@@ -2,22 +2,33 @@ import React from 'react';
 import Card from './Card';
 import styles from '../styles/Hand.module.css';
 
-export default function Hand({ cards, owner, selectCard, selectedCard }) {
+export default function Hand({ cards, owner, setActiveCard, selectedCard }) {
   //console.log('hand', cards);
+
+  const selectAvailableStyle = setActiveCard ? styles.selectAvailable : '';
+
   return (
     <div>
       <div>{owner} Cards</div>
       <div className={styles.cardContainer}>
         {cards.map((card, id) => {
           return (
-            <Card
-              {...card}
-              key={`${owner}${id}`}
-              owner={owner}
-              selectCard={selectCard}
-              index={id}
-              isSelected={selectedCard === id}
-            />
+            <button
+              className={
+                `${styles.cardButton} ${selectAvailableStyle} ` +
+                (selectedCard === id ? styles.isSelected : '')
+              }
+              key={`${owner}${id}btn`}
+            >
+              <Card
+                {...card}
+                key={`${owner}${id}`}
+                owner={owner}
+                setActiveCard={setActiveCard}
+                index={id}
+                isSelected={selectedCard === id}
+              />
+            </button>
           );
         })}
       </div>

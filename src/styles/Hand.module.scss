@@ -1,7 +1,18 @@
 .cardContainer {
   //display: flex;
   margin-top: 1em;
-  & > div {
+
+  .cardButton {
     position: relative;
+    border: 0;
+    padding: 0;
+  }
+
+  .cardButton.selectAvailable:hover {
+    bottom: 1em;
+  }
+
+  .cardButton.isSelected {
+    bottom: 1em;
   }
 }

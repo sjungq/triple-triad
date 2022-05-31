@@ -14,8 +14,10 @@ export default function Tile({ card, owner }) {
   //let owner = card ? 'BLUE' : '';
   return (
     <td className={`${styles.container} ${styles[owner]}`} onClick={testClick}>
-      {card ? <Card {...card} owner={owner} /> : <></>}
-      {/* <Card values={cardValues} /> */}
+      <button className={styles.tileButton}>
+        {card ? <Card {...card} owner={owner} /> : <></>}
+        {/* <Card values={cardValues} /> */}
+      </button>
     </td>
   );
 }
