@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import Tile from './Tile';
 import styles from '../styles/Gameboard.module.css';
-export default function Gameboard({ xlen, ylen, boardState }) {
+export default function Gameboard({ xlen, ylen, boardState, placeCardOnTile }) {
   /*
   render tiles, which will render cards placed on those tiles
   */
@@ -14,7 +14,15 @@ export default function Gameboard({ xlen, ylen, boardState }) {
     let boardRow = [];
     row.forEach((tile, yidx) => {
       let coord = `${xidx}-${yidx}`;
-      boardRow.push(<Tile key={coord} card={tile.card} owner={tile.owner} />);
+      boardRow.push(
+        <Tile
+          key={coord}
+          card={tile.card}
+          owner={tile.owner}
+          index={`${xidx}-${yidx}`}
+          placeCard={placeCardOnTile}
+        />
+      );
     });
 
     visualBoard.push(<tr key={`row${xidx}`}>{boardRow}</tr>);

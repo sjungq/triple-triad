@@ -26,7 +26,6 @@ export default function Hand({ cards, owner, setActiveCard, selectedCard }) {
                 owner={owner}
                 setActiveCard={setActiveCard}
                 index={id}
-                isSelected={selectedCard === id}
               />
             </button>
           );
