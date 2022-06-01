@@ -22,7 +22,13 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const [player1Hand, setPlayer1Hand] = useState(cards);
+  const [player2Hand, setPlayer2Hand] = useState(cards.slice().reverse());
   const [boardState, setBoardState] = useState(boardStateProto);
+  const [currentTurnData, setCurrentTurnData] = useState({
+    turnName: 'BLUE',
+    hand: player1Hand,
+    setHand: setPlayer1Hand,
+  });
 
   const setActiveCard = (index) => {
     console.log('Set selected card: ', index);
@@ -35,31 +41,65 @@ function App() {
     //check if tile is free
     //adjust boardState
 
-    if (selectedCard) {
+    if (selectedCard != null) {
       const [xidx, yidx] = index.split('-');
       let state = boardState;
-      state[xidx][yidx] = { card: player1Hand[selectedCard], owner: 'BLUE' };
+
+      state[xidx][yidx] = {
+        card: currentTurnData.hand[selectedCard],
+        owner: currentTurnData.turnName,
+      };
+
+      //flip logic, THEN adjust board state as well
+      flipCards();
       setBoardState(state);
-      //console.log('state: ', state);
-      //console.log('card: ', player1Hand[selectedCard]);
+
       //remove from hand
-      removeCardHand(player1Hand);
+      removeCardHand(currentTurnData.hand);
       setSelectedCard(null);
+      //setCurrentTurn(() => (currentTurn === 'BLUE' ? 'RED' : 'BLUE'));
+      //TEMPORARY
+      setCurrentTurnData({
+        turnName: currentTurnData.turnName === 'BLUE' ? 'RED' : 'BLUE',
+        hand: currentTurnData.turnName === 'BLUE' ? player2Hand : player1Hand,
+        setHand:
+          currentTurnData.turnName === 'BLUE' ? setPlayer2Hand : setPlayer1Hand,
+      });
     }
   };
 
+  const flipCards = () => {};
+
   const removeCardHand = (hand) => {
-    setPlayer1Hand(hand.filter((card, index) => index !== selectedCard));
+    //setPlayer1Hand(hand.filter((card, index) => index !== selectedCard));
+    console.log(currentTurnData);
+    currentTurnData.setHand(
+      hand.filter((card, index) => index !== selectedCard)
+    );
   };
+
   return (
     <div className='App'>
       <Hand
         cards={player1Hand}
         owner='BLUE'
-        setActiveCard={setActiveCard}
-        selectedCard={selectedCard}
+        setActiveCard={
+          currentTurnData.turnName === 'BLUE' ? setActiveCard : undefined
+        }
+        selectedCard={
+          currentTurnData.turnName === 'BLUE' ? selectedCard : undefined
+        }
       />
-      <Hand cards={cards.slice().reverse()} owner='RED' />
+      <Hand
+        cards={player2Hand}
+        owner='RED'
+        setActiveCard={
+          currentTurnData.turnName === 'RED' ? setActiveCard : undefined
+        }
+        selectedCard={
+          currentTurnData.turnName === 'RED' ? selectedCard : undefined
+        }
+      />
 
       <div>gameboard stuff</div>
 
