@@ -9,18 +9,12 @@ function App() {
   });
 
   const boardStateProto = [
-    [0, { card: testCards.cards[0], owner: 'BLUE' }, 0],
-    [
-      { card: testCards.cards[2], owner: 'RED' },
-      0,
-      { card: testCards.cards[1], owner: 'BLUE' },
-    ],
+    [0, 0, 0],
+    [0, 0, 0],
     [0, 0, 0],
   ];
 
-  //just testing if this works
   const [selectedCard, setSelectedCard] = useState(null);
-
   const [player1Hand, setPlayer1Hand] = useState(cards);
   const [player2Hand, setPlayer2Hand] = useState(cards.slice().reverse());
   const [boardState, setBoardState] = useState(boardStateProto);
@@ -29,6 +23,29 @@ function App() {
     hand: player1Hand,
     setHand: setPlayer1Hand,
   });
+  const [currentScore, setCurrentScore] = useState({
+    BLUE: 0,
+    RED: 0,
+  });
+
+  const countCurrentScore = (boardState) => {
+    let currentScore = {
+      BLUE: 0,
+      RED: 0,
+    };
+    //note for future self - maybe we could do better tracking
+    //of score changes every turn instead of rereading the entire
+    //board to read score?
+    boardState.forEach((row) => {
+      row.forEach((tile) => {
+        if (tile.owner) {
+          currentScore[tile.owner]++;
+        }
+      });
+    });
+
+    return currentScore;
+  };
 
   const setActiveCard = (index) => {
     console.log('Set selected card: ', index);
@@ -65,6 +82,7 @@ function App() {
         setHand:
           currentTurnData.turnName === 'BLUE' ? setPlayer2Hand : setPlayer1Hand,
       });
+      setCurrentScore(countCurrentScore(state));
     }
   };
 
@@ -72,7 +90,6 @@ function App() {
 
   const removeCardHand = (hand) => {
     //setPlayer1Hand(hand.filter((card, index) => index !== selectedCard));
-    console.log(currentTurnData);
     currentTurnData.setHand(
       hand.filter((card, index) => index !== selectedCard)
     );
@@ -80,6 +97,7 @@ function App() {
 
   return (
     <div className='App'>
+      <h3>It is currently {currentTurnData.turnName}'s turn.</h3>
       <Hand
         cards={player1Hand}
         owner='BLUE'
