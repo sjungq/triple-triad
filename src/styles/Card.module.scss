@@ -32,9 +32,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: auto;
-  text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  text-shadow: 0 0 5px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   position: relative;
-  bottom: -2.3em;
+  bottom: -2.5em;
   .N {
     grid-row: 1;
     grid-column: 1/-1;

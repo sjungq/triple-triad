@@ -9,7 +9,6 @@ export default function Hand({ cards, owner, setActiveCard, selectedCard }) {
 
   return (
     <div>
-      <div>{owner} Cards</div>
       <div className={styles.cardContainer}>
         {cards.map((card, id) => {
           return (

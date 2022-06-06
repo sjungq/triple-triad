@@ -27,6 +27,13 @@
       "url": "Ronka.png",
       "rank": "2",
       "values": [4, 4, 6, 6]
+    },
+    {
+      "id": "5",
+      "name": "Capybara Pup",
+      "url": "CapybaraPup.png",
+      "rank": "4",
+      "values": [9, 1, 8, 7]
     }
   ]
 }

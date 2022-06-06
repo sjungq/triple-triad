@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/Card.module.css';
 //import img from '../images/FatCatHeart.png';
 
@@ -13,19 +13,10 @@ export default function Card({
 }) {
   //const stats = [1, 2, 3, 4];
   const valuePositions = ['N', 'W', 'E', 'S'];
-  const [currentOwner, setCurrentOwner] = useState(owner);
 
   const style = {
     backgroundImage: `url(/images/${url})`,
-    backgroundColor: currentOwner,
-  };
-
-  const flipOwner = () => {
-    if (currentOwner === 'BLUE') {
-      setCurrentOwner('RED');
-    } else if (currentOwner === 'RED') {
-      setCurrentOwner('BLUE');
-    }
+    backgroundColor: owner,
   };
 
   const cardClick = (evt) => {
@@ -33,7 +24,7 @@ export default function Card({
     if (setActiveCard) {
       setActiveCard(index);
     } else {
-      console.log(values, currentOwner);
+      console.log(values, owner);
     }
   };
   return (
