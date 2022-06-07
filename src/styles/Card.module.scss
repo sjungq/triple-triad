@@ -51,20 +51,16 @@
     grid-column: 1/-1;
     margin: -0.4em 0;
   }
+}
 
-  /*
-	.N {
-		transform: translate(0);
-	}
-	.E {
-		transform: translate(0.7em, 0);
-	}
-	.S {
-		transform: translate(0, 0.2em);
-	}
-	.W {
-		transform: translate(-0.7em, -2.65em);
-	}
-	*/
-  //wow im really dumb
+@keyframes flip {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+.flipped {
+  animation: flip 0.7s;
 }

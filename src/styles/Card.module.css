@@ -40,20 +40,6 @@
   text-shadow: 0 0 5px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   position: relative;
   bottom: -2.5em;
-  /*
-	.N {
-		transform: translate(0);
-	}
-	.E {
-		transform: translate(0.7em, 0);
-	}
-	.S {
-		transform: translate(0, 0.2em);
-	}
-	.W {
-		transform: translate(-0.7em, -2.65em);
-	}
-	*/
 }
 
 .values .N {
@@ -75,5 +61,32 @@
   grid-row: 3;
   grid-column: 1/-1;
   margin: -0.4em 0;
+}
+
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.flipped {
+  -webkit-animation: flip 0.7s;
+          animation: flip 0.7s;
 }
 /*# sourceMappingURL=Card.module.css.map */

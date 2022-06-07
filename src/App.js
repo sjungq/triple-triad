@@ -27,6 +27,7 @@ function App() {
     BLUE: 0,
     RED: 0,
   });
+  const [flippedCards, setFlippedCards] = useState([]);
 
   const countCurrentScore = (boardState) => {
     let currentScore = {
@@ -48,13 +49,14 @@ function App() {
   };
 
   const setActiveCard = (index) => {
-    console.log('Set selected card: ', index);
+    //console.log('Set selected card: ', index);
     cards[index].isSelected = true;
     //console.log(cards[index]);
     setSelectedCard(index);
   };
 
   const placeCardOnTile = (index) => {
+    //reset flipped toggle
     //check if tile is free
     //adjust boardState
 
@@ -65,16 +67,20 @@ function App() {
       state[xidx][yidx] = {
         card: currentTurnData.hand[selectedCard],
         owner: currentTurnData.turnName,
+        flipped: false,
       };
 
       //flip logic, THEN adjust board state as well
-      state = flipCards(state, { xidx: xidx, yidx: yidx });
-      setBoardState(state);
+      let { postFlipState, flippedCoords } = flipNeighborCards(state, {
+        xidx: xidx,
+        yidx: yidx,
+      });
+      setBoardState(postFlipState);
+      setFlippedCards(flippedCoords);
 
       //remove from hand
       removeCardHand(currentTurnData.hand);
       setSelectedCard(null);
-      //setCurrentTurn(() => (currentTurn === 'BLUE' ? 'RED' : 'BLUE'));
       //TEMPORARY
       setCurrentTurnData({
         turnName: currentTurnData.turnName === 'BLUE' ? 'RED' : 'BLUE',
@@ -90,10 +96,9 @@ function App() {
     return x >= 0 && x <= 2 && y >= 0 && y <= 2;
   };
 
-  const flipCards = (state, { xidx, yidx }) => {
+  const flipNeighborCards = (state, { xidx, yidx }) => {
     let postFlipState = state;
     const cardOwner = state[xidx][yidx].owner;
-    const placedCard = state[xidx][yidx].card;
 
     const placedCardValues = state[xidx][yidx].card.values.map((value) => {
       if (value === 'A') {
@@ -118,7 +123,6 @@ function App() {
         cardinal: cardinal,
         coords: coords[cardinal],
       }));
-    console.log(placedCard);
 
     /**Note for future:
      * What if we actually stored the card above? To make
@@ -130,32 +134,36 @@ function App() {
      * the relevant cardinal values for a flip
      */
 
+    let flippedCoords = [];
+
     filteredCardinals.forEach(({ cardinal, coords }) => {
+      //console.log('cardinal:', cardinal, postFlipState[coords.x][coords.y]);
       if (
         postFlipState[coords.x][coords.y] &&
-        postFlipState[coords.x][coords.y] !== cardOwner
+        postFlipState[coords.x][coords.y].owner !== cardOwner
       ) {
+        let flipped = false;
         if (cardinal === 'n') {
           //
           if (
             placedCardValues[0] >
             postFlipState[coords.x][coords.y].card.values[3]
           ) {
-            postFlipState[coords.x][coords.y].owner = cardOwner;
+            flipped = true;
           }
         } else if (cardinal === 'e') {
           if (
             placedCardValues[2] >
             postFlipState[coords.x][coords.y].card.values[1]
           ) {
-            postFlipState[coords.x][coords.y].owner = cardOwner;
+            flipped = true;
           }
         } else if (cardinal === 's') {
           if (
             placedCardValues[3] >
             postFlipState[coords.x][coords.y].card.values[0]
           ) {
-            postFlipState[coords.x][coords.y].owner = cardOwner;
+            flipped = true;
           }
         } else if (cardinal === 'w') {
           //
@@ -163,21 +171,24 @@ function App() {
             placedCardValues[1] >
             postFlipState[coords.x][coords.y].card.values[2]
           ) {
-            postFlipState[coords.x][coords.y].owner = cardOwner;
+            flipped = true;
           }
+        }
+        if (flipped) {
+          flippedCoords.push({
+            tile: postFlipState[coords.x][coords.y],
+            x: coords.x,
+            y: coords.y,
+          });
         }
       }
     });
+    flippedCoords.forEach(({ tile }) => {
+      tile.owner = cardOwner;
+      tile.flipped = true;
+    });
 
-    // filteredCoords.forEach(({ x, y }) => {
-    //   if (postFlipState[x][y]) {
-    //     if (postFlipState[x][y].owner !== cardOwner) {
-    //       console.log('Opposite:', postFlipState[x][y]);
-    //     }
-    //   }
-    // });
-
-    return postFlipState;
+    return { postFlipState, flippedCoords };
   };
 
   const removeCardHand = (hand) => {

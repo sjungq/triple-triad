@@ -10,6 +10,7 @@ export default function Card({
   name,
   setActiveCard,
   index,
+  flipped,
 }) {
   //const stats = [1, 2, 3, 4];
   const valuePositions = ['N', 'W', 'E', 'S'];
@@ -18,6 +19,8 @@ export default function Card({
     backgroundImage: `url(/images/${url})`,
     backgroundColor: owner,
   };
+
+  const flipStyle = flipped ? styles.flipped : '';
 
   const cardClick = (evt) => {
     //flipOwner();
@@ -30,9 +33,10 @@ export default function Card({
   return (
     <div
       style={style}
-      className={`${styles.container}`}
+      className={`${styles.container} ${flipStyle}`}
       onClick={cardClick}
       title={name}
+      key={`${owner}${index}`}
     >
       <div className={styles.rank}>{rank}</div>
       {/* <img src={`${process.env.PUBLIC_URL}/images/${url}`} alt='card-art' /> */}
@@ -49,4 +53,5 @@ export default function Card({
 
 Card.defaultProps = {
   rank: 3,
+  flipped: false,
 };

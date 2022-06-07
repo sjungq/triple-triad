@@ -19,6 +19,7 @@ export default function Gameboard({ xlen, ylen, boardState, placeCardOnTile }) {
           key={coord}
           card={tile.card}
           owner={tile.owner}
+          flipped={tile.flipped}
           index={`${xidx}-${yidx}`}
           placeCard={placeCardOnTile}
         />
