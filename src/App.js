@@ -27,7 +27,6 @@ function App() {
     BLUE: 0,
     RED: 0,
   });
-  const [flippedCards, setFlippedCards] = useState([]);
 
   const countCurrentScore = (boardState) => {
     let currentScore = {
@@ -49,17 +48,11 @@ function App() {
   };
 
   const setActiveCard = (index) => {
-    //console.log('Set selected card: ', index);
     cards[index].isSelected = true;
-    //console.log(cards[index]);
     setSelectedCard(index);
   };
 
   const placeCardOnTile = (index) => {
-    //reset flipped toggle
-    //check if tile is free
-    //adjust boardState
-
     if (selectedCard != null) {
       const [xidx, yidx] = index.split('-').map(Number);
       let state = boardState;
@@ -71,12 +64,11 @@ function App() {
       };
 
       //flip logic, THEN adjust board state as well
-      let { postFlipState, flippedCoords } = flipNeighborCards(state, {
+      let postFlipState = flipNeighborCards(state, {
         xidx: xidx,
         yidx: yidx,
       });
       setBoardState(postFlipState);
-      setFlippedCards(flippedCoords);
 
       //remove from hand
       removeCardHand(currentTurnData.hand);
@@ -107,7 +99,6 @@ function App() {
         return value;
       }
     });
-    // console.log('Card placed:', state[xidx][yidx]);
     //check cardinals
     //up right down left
     const coords = {
@@ -188,7 +179,7 @@ function App() {
       tile.flipped = true;
     });
 
-    return { postFlipState, flippedCoords };
+    return postFlipState;
   };
 
   const removeCardHand = (hand) => {
