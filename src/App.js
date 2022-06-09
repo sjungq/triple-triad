@@ -184,8 +184,19 @@ function App() {
 
   const removeCardHand = (hand) => {
     //setPlayer1Hand(hand.filter((card, index) => index !== selectedCard));
+    // currentTurnData.setHand(
+    //   hand.filter((card, index) => index !== selectedCard)
+    // );
+    console.log(hand);
     currentTurnData.setHand(
-      hand.filter((card, index) => index !== selectedCard)
+      hand.map((card, index) => {
+        if (index === selectedCard) {
+          console.log('would like ot remove', index);
+          return 0;
+        } else {
+          return card;
+        }
+      })
     );
   };
 
