@@ -1,3 +1,4 @@
+@import '../utilities/variables';
 .container {
   border: 1px solid black;
   border-radius: 5px;
@@ -5,8 +6,8 @@
   display: inline-flex;
   flex-direction: column;
 
-  width: 7.5em;
-  height: 10.5em;
+  width: $cardWidth;
+  height: $cardHeight;
 
   //background-image: url('../images/Alpha.png');
   //https://source.unsplash.com/collection/483251
@@ -19,8 +20,8 @@
 .rank {
   text-align: left;
   color: white;
-  font-size: 1em;
-  padding: 0 0.5em;
+  font-size: 1rem;
+  padding: 0 0.5rem;
   text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
@@ -34,22 +35,22 @@
   grid-auto-columns: auto;
   text-shadow: 0 0 5px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   position: relative;
-  bottom: -2.5em;
+  bottom: -2.5rem;
   .N {
     grid-row: 1;
     grid-column: 1/-1;
-    margin: -0.4em 0;
+    margin: -0.4rem 0;
   }
   .W,
   .E {
     grid-row: 2;
-    margin: 0 0.2em;
+    margin: 0 0.2rem;
   }
 
   .S {
     grid-row: 3;
     grid-column: 1/-1;
-    margin: -0.4em 0;
+    margin: -0.4rem 0;
   }
 }
 

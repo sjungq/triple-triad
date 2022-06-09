@@ -17,8 +17,8 @@ export default function Hand({
     <div>
       <div className={styles.cardContainer}>
         {cards.map((card, id) => {
-          if (card) {
-            return (
+          return (
+            <div className={styles.cardHandSlot}>
               <button
                 className={
                   `${styles.cardButton} ${selectAvailableStyle} ` +
@@ -26,22 +26,21 @@ export default function Hand({
                 }
                 key={`${owner}${id}btn`}
               >
-                <Card
-                  {...card}
-                  key={`${owner}${id}`}
-                  owner={owner}
-                  setActiveCard={setActiveCard}
-                  index={id}
-                />
+                {card ? (
+                  <Card
+                    {...card}
+                    key={`${owner}${id}`}
+                    owner={owner}
+                    setActiveCard={setActiveCard}
+                    index={id}
+                  />
+                ) : (
+                  ''
+                )}
               </button>
-            );
-          } else {
-            return (
-              <button className={`${styles.emptySlot}`}>
-                <div></div>
-              </button>
-            );
-          }
+              <div className={styles.handEmptySlot}></div>
+            </div>
+          );
         })}
       </div>
     </div>

@@ -8,8 +8,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 7.5em;
-  height: 10.5em;
+  width: 6.5rem;
+  height: 9rem;
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: gray;
@@ -22,8 +22,8 @@
 .rank {
   text-align: left;
   color: white;
-  font-size: 1em;
-  padding: 0 0.5em;
+  font-size: 1rem;
+  padding: 0 0.5rem;
   text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
@@ -39,28 +39,28 @@
   grid-auto-columns: auto;
   text-shadow: 0 0 5px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   position: relative;
-  bottom: -2.5em;
+  bottom: -2.5rem;
 }
 
 .values .N {
   -ms-grid-row: 1;
   grid-row: 1;
   grid-column: 1/-1;
-  margin: -0.4em 0;
+  margin: -0.4rem 0;
 }
 
 .values .W,
 .values .E {
   -ms-grid-row: 2;
   grid-row: 2;
-  margin: 0 0.2em;
+  margin: 0 0.2rem;
 }
 
 .values .S {
   -ms-grid-row: 3;
   grid-row: 3;
   grid-column: 1/-1;
-  margin: -0.4em 0;
+  margin: -0.4rem 0;
 }
 
 @-webkit-keyframes flip {

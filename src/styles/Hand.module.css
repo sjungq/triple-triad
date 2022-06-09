@@ -1,5 +1,5 @@
 .cardContainer {
-  margin-top: 1em;
+  margin: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,26 +10,33 @@
   position: relative;
   border: 0;
   padding: 0;
-  margin: 0 5px;
-  width: 7.5em;
+  z-index: 3;
 }
 
 .cardContainer .cardButton.selectAvailable:hover {
-  bottom: 1em;
+  bottom: 1rem;
 }
 
 .cardContainer .cardButton.isSelected {
-  bottom: 1em;
+  bottom: 1rem;
 }
 
-.cardContainer .emptySlot {
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: gray;
-  border: 0;
-  padding: 0;
-  width: 7.5em;
-  height: 10.5em;
+.cardContainer .cardHandSlot {
+  position: relative;
+  width: 6.5rem;
+  height: 9rem;
   margin: 0 5px;
+}
+
+.cardContainer .cardHandSlot .handEmptySlot {
+  position: absolute;
+  background-color: rgba(119, 136, 153, 0.4);
+  margin: 0;
+  padding: 0;
+  top: 0;
+  border-radius: 5px;
+  width: 6.5rem;
+  height: 9rem;
+  z-index: 1;
 }
 /*# sourceMappingURL=Hand.module.css.map */
