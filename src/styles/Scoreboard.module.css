@@ -1,0 +1,13 @@
+.container .turnIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.container .turnIcon.BLUE {
+  background-color: #0074b3;
+}
+
+.container .turnIcon.RED {
+  background-color: red;
+}
+/*# sourceMappingURL=Scoreboard.module.css.map */

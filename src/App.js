@@ -3,6 +3,7 @@ import Hand from './Components/Hand';
 import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
 import { useState } from 'react';
+import Scoreboard from './Components/Scoreboard';
 function App() {
   const cards = testCards.cards.map((card) => {
     return { ...card };
@@ -183,15 +184,9 @@ function App() {
   };
 
   const removeCardHand = (hand) => {
-    //setPlayer1Hand(hand.filter((card, index) => index !== selectedCard));
-    // currentTurnData.setHand(
-    //   hand.filter((card, index) => index !== selectedCard)
-    // );
-    console.log(hand);
     currentTurnData.setHand(
       hand.map((card, index) => {
         if (index === selectedCard) {
-          console.log('would like ot remove', index);
           return 0;
         } else {
           return card;
@@ -200,11 +195,32 @@ function App() {
     );
   };
 
+  /**
+   * For later:
+   * - Look at order of execution for setCurrentTurnData
+   *  - had to set hand to "cards" because state set wasn't executed due to React batching
+   * - store both players' hands for the sake of this reset
+   */
+  const resetGame = () => {
+    setBoardState(boardStateProto);
+    setPlayer1Hand(cards);
+    setPlayer2Hand(cards.slice().reverse());
+    setCurrentTurnData({
+      turnName: 'BLUE',
+      hand: cards,
+      setHand: setPlayer1Hand,
+    });
+    setSelectedCard(null);
+  };
+
   return (
     <div className='App'>
       <h3>It is currently {currentTurnData.turnName}'s turn.</h3>
-      <h5>Blue:{currentScore.BLUE}</h5>
-      <h5>Red:{currentScore.RED}</h5>
+      <Scoreboard
+        currentScore={currentScore}
+        currentTurn={currentTurnData.turnName}
+      />
+      <button onClick={resetGame}>Reset</button>
       <Hand
         cards={player1Hand}
         owner='BLUE'
@@ -215,7 +231,7 @@ function App() {
           currentTurnData.turnName === 'BLUE' ? selectedCard : undefined
         }
       />
-      {<Gameboard boardState={boardState} placeCardOnTile={placeCardOnTile} />}
+      <Gameboard boardState={boardState} placeCardOnTile={placeCardOnTile} />
       <Hand
         cards={player2Hand}
         owner='RED'

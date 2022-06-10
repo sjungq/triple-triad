@@ -1,0 +1,14 @@
+@import '../utilities/variables';
+.container {
+  .turnIcon {
+    width: 1rem;
+    height: 1rem;
+    &.BLUE {
+      background-color: $cardBlue;
+    }
+
+    &.RED {
+      background-color: $cardRed;
+    }
+  }
+}

@@ -14,35 +14,33 @@ export default function Hand({
   const selectAvailableStyle = setActiveCard ? styles.selectAvailable : '';
 
   return (
-    <div>
-      <div className={styles.cardContainer}>
-        {cards.map((card, id) => {
-          return (
-            <div className={styles.cardHandSlot}>
-              <button
-                className={
-                  `${styles.cardButton} ${selectAvailableStyle} ` +
-                  (selectedCard === id ? styles.isSelected : '')
-                }
-                key={`${owner}${id}btn`}
-              >
-                {card ? (
-                  <Card
-                    {...card}
-                    key={`${owner}${id}`}
-                    owner={owner}
-                    setActiveCard={setActiveCard}
-                    index={id}
-                  />
-                ) : (
-                  ''
-                )}
-              </button>
-              <div className={styles.handEmptySlot}></div>
-            </div>
-          );
-        })}
-      </div>
+    <div className={styles.cardContainer}>
+      {cards.map((card, id) => {
+        return (
+          <div className={styles.cardHandSlot} key={`${owner}SLOT${id}`}>
+            <button
+              className={
+                `${styles.cardButton} ${selectAvailableStyle} ` +
+                (selectedCard === id ? styles.isSelected : '')
+              }
+              key={`${owner}${id}btn`}
+            >
+              {card ? (
+                <Card
+                  {...card}
+                  key={`${owner}${id}`}
+                  owner={owner}
+                  setActiveCard={setActiveCard}
+                  index={id}
+                />
+              ) : (
+                ''
+              )}
+            </button>
+            <div className={styles.handEmptySlot}></div>
+          </div>
+        );
+      })}
     </div>
   );
 }

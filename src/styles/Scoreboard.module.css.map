@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AACE,UADQ,CACR,SAAS,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CAQb;;AAXH,AAII,UAJM,CACR,SAAS,AAGN,KAAK,CAAC;EACL,gBAAgB,ECHX,OAAgB;CDItB;;AANL,AAQI,UARM,CACR,SAAS,AAON,IAAI,CAAC;EACJ,gBAAgB,ECNZ,GAAG;CDOR",
+    "sources": [
+        "Scoreboard.module.scss",
+        "../utilities/_variables.scss"
+    ],
+    "names": [],
+    "file": "Scoreboard.module.css"
+}
