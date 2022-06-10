@@ -1,3 +1,4 @@
+@import '../utilities/variables';
 .container {
   width: 10em;
   height: 10em;
@@ -17,9 +18,9 @@
 }
 
 .BLUE {
-  background-color: rgba(0, 116, 179, 0.2);
+  background-color: rgba($cardBlue, 0.2);
 }
 
 .RED {
-  background-color: rgba(179, 0, 0, 0.2);
+  background-color: rgba($cardRed, 0.2);
 }

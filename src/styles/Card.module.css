@@ -19,6 +19,14 @@
           user-select: none;
 }
 
+.container.BLUE {
+  background-color: #0074b3;
+}
+
+.container.RED {
+  background-color: #b91818;
+}
+
 .rank {
   text-align: left;
   color: white;

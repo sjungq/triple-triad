@@ -15,6 +15,13 @@
   background-size: 100%;
   background-color: gray;
   user-select: none;
+
+  &.BLUE {
+    background-color: $cardBlue;
+  }
+  &.RED {
+    background-color: $cardRed;
+  }
 }
 
 .rank {
