@@ -2,7 +2,7 @@ import Card from './Components/Card';
 import Hand from './Components/Hand';
 import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Scoreboard from './Components/Scoreboard';
 function App() {
   const cards = testCards.cards.map((card) => {
@@ -211,6 +211,7 @@ function App() {
       setHand: setPlayer1Hand,
     });
     setSelectedCard(null);
+    setCurrentScore({ BLUE: 0, RED: 0 });
   };
 
   return (
