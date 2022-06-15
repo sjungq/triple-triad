@@ -2,7 +2,7 @@
 
 Clone of the Triple Triad minigame in the Final Fantasy franchise, specifically following the implementation of the game in Final Fantasy XIV
 
-Still a work in progress; hosted on [tripletriad.sjungq.com](https://tripletriad.sjungq.com).
+Still a work in progress; hosted on [tripletriad.sjungq.com](https://tripletriad.sjungq.com). Currently acts like a single player game where you control both sides, styling is minimal, games don't automatically end after 9 cards played, and only the basic capturing rule is implemented - for now!
 
 Basic Rules from the [official NA FFXIV website](https://na.finalfantasyxiv.com/lodestone/playguide/contentsguide/goldsaucer/tripletriad/):
 
