@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AACA,AACE,UADQ,CACR,SAAS,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CAQb;;AAXH,AAII,UAJM,CACR,SAAS,AAGN,KAAK,CAAC;EACL,gBAAgB,ECHX,OAAgB;CDItB;;AANL,AAQI,UARM,CACR,SAAS,AAON,IAAI,CAAC;EACJ,gBAAgB,ECNZ,OAAgB;CDOrB",
-    "sources": [
-        "Scoreboard.module.scss",
-        "../utilities/_variables.scss"
-    ],
-    "names": [],
-    "file": "Scoreboard.module.css"
-}
+{"version":3,"sources":["Scoreboard.module.scss","Scoreboard.module.css","../utilities/_variables.scss"],"names":[],"mappings":"AAEE;EACE,WAAA;EACA,YAAA;ACDJ;ADEI;EACE,kCEHK;ADGX;ADGI;EACE,kCENI;ADKV","file":"Scoreboard.module.css"}

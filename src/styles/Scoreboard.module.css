@@ -2,12 +2,9 @@
   width: 1rem;
   height: 1rem;
 }
-
 .container .turnIcon.BLUE {
-  background-color: #0074b3;
+  background-color: rgb(0, 116, 179);
 }
-
 .container .turnIcon.RED {
-  background-color: #b91818;
-}
-/*# sourceMappingURL=Scoreboard.module.css.map */
+  background-color: rgb(185, 24, 24);
+}/*# sourceMappingURL=Scoreboard.module.css.map */

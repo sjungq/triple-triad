@@ -1,9 +1,10 @@
-import Card from './Components/Card';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Hand from './Components/Hand';
 import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
-import React, { useState } from 'react';
 import Scoreboard from './Components/Scoreboard';
+import Navbar from './Components/ui/Navbar';
 function App() {
   const cards = testCards.cards.map((card) => {
     return { ...card };
@@ -216,7 +217,8 @@ function App() {
 
   return (
     <div className='App'>
-      <h3>It is currently {currentTurnData.turnName}'s turn.</h3>
+      <Navbar />
+      {/* <h3>It is currently {currentTurnData.turnName}'s turn.</h3> */}
       <Scoreboard
         currentScore={currentScore}
         currentTurn={currentTurnData.turnName}

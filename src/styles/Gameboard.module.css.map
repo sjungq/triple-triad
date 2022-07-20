@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,eAAe,EAAE,QAAQ;EACzB,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,eAAe;CACxB;;AAED,AAAA,EAAE,CAAC;EACD,MAAM,EAAE,eAAe;CACxB",
-    "sources": [
-        "Gameboard.module.scss"
-    ],
-    "names": [],
-    "file": "Gameboard.module.css"
-}
+{"version":3,"sources":["Gameboard.module.scss","Gameboard.module.css"],"names":[],"mappings":"AAAA;EACE,yBAAA;EACA,UAAA;EACA,uBAAA;ACCF;;ADEA;EACE,uBAAA;ACCF","file":"Gameboard.module.css"}

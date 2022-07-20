@@ -1,33 +1,26 @@
 .cardContainer {
   margin: 1rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
-
 .cardContainer .cardButton {
   position: relative;
   border: 0;
   padding: 0;
   z-index: 3;
 }
-
 .cardContainer .cardButton.selectAvailable:hover {
   bottom: 1rem;
 }
-
 .cardContainer .cardButton.isSelected {
   bottom: 1rem;
 }
-
 .cardContainer .cardHandSlot {
   position: relative;
   width: 6.5rem;
-  height: 9rem;
+  height: 8.5rem;
   margin: 0 5px;
 }
-
 .cardContainer .cardHandSlot .handEmptySlot {
   position: absolute;
   background-color: rgba(119, 136, 153, 0.4);
@@ -36,7 +29,6 @@
   top: 0;
   border-radius: 5px;
   width: 6.5rem;
-  height: 9rem;
+  height: 8.5rem;
   z-index: 1;
-}
-/*# sourceMappingURL=Hand.module.css.map */
+}/*# sourceMappingURL=Hand.module.css.map */

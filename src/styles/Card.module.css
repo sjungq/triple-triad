@@ -1,15 +1,10 @@
 .container {
   border: 1px solid black;
   border-radius: 5px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 6.5rem;
-  height: 9rem;
+  height: 8.5rem;
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: gray;
@@ -18,13 +13,11 @@
       -ms-user-select: none;
           user-select: none;
 }
-
 .container.BLUE {
-  background-color: #0074b3;
+  background-color: rgb(0, 116, 179);
 }
-
 .container.RED {
-  background-color: #b91818;
+  background-color: rgb(185, 24, 24);
 }
 
 .rank {
@@ -40,32 +33,24 @@
   padding: 1em;
   font-size: 1.5em;
   text-align: center;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-columns: auto;
   text-shadow: 0 0 5px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   position: relative;
   bottom: -2.5rem;
 }
-
 .values .N {
-  -ms-grid-row: 1;
   grid-row: 1;
   grid-column: 1/-1;
   margin: -0.4rem 0;
 }
-
 .values .W,
 .values .E {
-  -ms-grid-row: 2;
   grid-row: 2;
   margin: 0 0.2rem;
 }
-
 .values .S {
-  -ms-grid-row: 3;
   grid-row: 3;
   grid-column: 1/-1;
   margin: -0.4rem 0;
@@ -73,28 +58,22 @@
 
 @-webkit-keyframes flip {
   0% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
   100% {
-    -webkit-transform: none;
-            transform: none;
+    transform: none;
   }
 }
 
 @keyframes flip {
   0% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
   100% {
-    -webkit-transform: none;
-            transform: none;
+    transform: none;
   }
 }
-
 .flipped {
   -webkit-animation: flip 0.7s;
           animation: flip 0.7s;
-}
-/*# sourceMappingURL=Card.module.css.map */
+}/*# sourceMappingURL=Card.module.css.map */

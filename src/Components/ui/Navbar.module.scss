@@ -1,0 +1,42 @@
+@import '../../utilities/variables';
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: rgba($cardBlue, 1);
+  color: white;
+  gap: 2rem;
+
+  .title {
+    color: inherit;
+    font-size: 2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  ul li {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  li:active {
+    background-color: rgba($cardBlue, 0.2);
+  }
+
+  li:hover {
+    background-color: $cardBlueDark;
+  }
+}
