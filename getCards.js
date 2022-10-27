@@ -68,8 +68,10 @@ getDataList('TripleTriadCard')
             data[index].Left,
             data[index].Right,
           ],
-          rank: data[index].TripleTriadCardRarity ?? { rank: 0, stars: 0 },
-          url: `${urlOfIcon(BASE_IMAGE_INDEX + index, true)}`,
+          rank: data[index].TripleTriadCardRarity
+            ? data[index].TripleTriadCardRarity.Stars
+            : 0,
+          url: `${urlOfIcon(BASE_IMAGE_INDEX + index, false)}`,
         }));
 
         // for (const c of meow) {

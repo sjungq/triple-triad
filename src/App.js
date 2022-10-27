@@ -3,12 +3,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Hand from './Components/Hand';
 import Gameboard from './Components/Gameboard';
 import testCards from './cards.json';
+import testCards2 from './testCards.json';
 import Scoreboard from './Components/Scoreboard';
 import Navbar from './Components/ui/Navbar';
 function App() {
-  const cards = testCards.cards.map((card) => {
+  const cards = testCards2.cards.map((card) => {
     return { ...card };
   });
+
+  const getRandomHand = (cards, num = 5) => {
+    const shuffled = [...cards].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+  };
 
   const boardStateProto = [
     [0, 0, 0],
@@ -17,8 +23,8 @@ function App() {
   ];
 
   const [selectedCard, setSelectedCard] = useState(null);
-  const [player1Hand, setPlayer1Hand] = useState(cards);
-  const [player2Hand, setPlayer2Hand] = useState(cards.slice().reverse());
+  const [player1Hand, setPlayer1Hand] = useState(getRandomHand(cards, 5));
+  const [player2Hand, setPlayer2Hand] = useState(getRandomHand(cards, 5));
   const [boardState, setBoardState] = useState(boardStateProto);
   const [currentTurnData, setCurrentTurnData] = useState({
     turnName: 'BLUE',
@@ -204,8 +210,8 @@ function App() {
    */
   const resetGame = () => {
     setBoardState(boardStateProto);
-    setPlayer1Hand(cards);
-    setPlayer2Hand(cards.slice().reverse());
+    setPlayer1Hand(getRandomHand(cards, 5));
+    setPlayer2Hand(getRandomHand(cards, 5));
     setCurrentTurnData({
       turnName: 'BLUE',
       hand: cards,
