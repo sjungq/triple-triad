@@ -208,13 +208,18 @@ function App() {
    *  - had to set hand to "cards" because state set wasn't executed due to React batching
    * - store both players' hands for the sake of this reset
    */
+
+  const resetHand = () => {
+    setPlayer1Hand(getRandomHand(cards, 5));
+  };
   const resetGame = () => {
     setBoardState(boardStateProto);
-    setPlayer1Hand(getRandomHand(cards, 5));
+    let newCards = getRandomHand(cards, 5);
+    setPlayer1Hand(newCards);
     setPlayer2Hand(getRandomHand(cards, 5));
     setCurrentTurnData({
       turnName: 'BLUE',
-      hand: cards,
+      hand: newCards,
       setHand: setPlayer1Hand,
     });
     setSelectedCard(null);
